@@ -1,17 +1,17 @@
-// listen to the form submission
 document
-.getElementById("form")
+.getElementById("myForm")
 .addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const serviceID = "service_qapwzxu";
+    const serviceID = "service_8pgiqcm";
     const templateID = "template_vrae3hu";
 
     // send the email here
     emailjs.sendForm(serviceID, templateID, this).then(
     (response) => {
-        console.log("SUCCESS!", response.status, response.text);
-        alert("SUCCESS!");
+        console.log("SUCCES!", response.status, response.text);
+        alert("ENVOYÉ AVEC SUCCÈS!");
+        location.reload();
     },
     (error) => {
         console.log("FAILED...", error);

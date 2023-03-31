@@ -9,7 +9,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/logo512.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,13 +74,7 @@
                     <a href="index.html" class="nav-item nav-link">Accueil</a>
                     <a href="about.html" class="nav-item nav-link">À Propos</a>
                     <a href="service.html" class="nav-item nav-link">Services</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Blog</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="" class="dropdown-item">Blog Grid</a>
-                            <a href="" class="dropdown-item">Blog Detail</a>
-                        </div>
-                    </div>
+                    <a href="detail.html" class="nav-item nav-link">News</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu m-0">
@@ -141,54 +135,32 @@
             </div>
             <div class="row g-5 mb-5">
                 <div class="col-lg-4">
-                    <div class="d-flex align-items-center wow fadeIn" data-wow-delay="0.1s">
-                        <div class="bg-primary d-flex align-items-center justify-content-center rounded" style="width: 60px; height: 60px;">
-                            <i class="fa fa-phone-alt text-white"></i>
-                        </div>
-                        <div class="ps-4">
-                            <h5 class="mb-2">Appelez pour poser n'importe quelle question</h5>
-                            <h4 class="text-primary mb-0">+39 351 822 94 02</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
                     <div class="d-flex align-items-center wow fadeIn" data-wow-delay="0.4s">
                         <div class="bg-primary d-flex align-items-center justify-content-center rounded" style="width: 60px; height: 60px;">
                             <i class="fa fa-envelope-open text-white"></i>
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2">E-mail pour obtenir un devis gratuit</h5>
-                            <h4 class="text-primary mb-0">Osaconsulting.contact@gmail.com</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="d-flex align-items-center wow fadeIn" data-wow-delay="0.8s">
-                        <div class="bg-primary d-flex align-items-center justify-content-center rounded" style="width: 60px; height: 60px;">
-                            <i class="fa fa-map-marker-alt text-white"></i>
-                        </div>
-                        <div class="ps-4">
-                            <h5 class="mb-2">Visitez notre bureau</h5>
-                            <h4 class="text-primary mb-0">ITALY</h4>
+                            <h5 class="text-primary mb-0" >Osaconsulting.contact@gmail.com</h5>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row g-5">
                 <div class="col-lg-6 wow slideInUp" data-wow-delay="0.3s">
-                    <form>
+                    <form id="myForm">
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <input type="text" class="form-control border-0 bg-light px-4" placeholder="Votre Name" style="height: 55px;">
+                                <input name="name" type="text" class="form-control border-0 bg-light px-4" placeholder="Votre Nom" style="height: 55px;">
                             </div>
                             <div class="col-md-6">
-                                <input type="email" class="form-control border-0 bg-light px-4" placeholder="Votre Email" style="height: 55px;">
+                                <input  name="email" type="email" class="form-control border-0 bg-light px-4" placeholder="Votre Email" style="height: 55px;">
                             </div>
                             <div class="col-12">
-                                <input type="text" class="form-control border-0 bg-light px-4" placeholder="Object" style="height: 55px;">
+                                <input name="subject" type="text" class="form-control border-0 bg-light px-4" placeholder="Objet" style="height: 55px;">
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control border-0 bg-light px-4 py-3" rows="4" placeholder="Message"></textarea>
+                                <textarea name="message" class="form-control border-0 bg-light px-4 py-3" rows="4" placeholder="Message"></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Envouyez le Message</button>
@@ -313,6 +285,14 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">      
+        (function () {
+        emailjs.init("SI8SSEDK4S4OlG5O_");
+      })();
+    </script>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -325,6 +305,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/email.js"></script>
 </body>
 
 </html>

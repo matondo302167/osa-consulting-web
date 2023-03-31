@@ -9,7 +9,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/logo512.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,7 +94,6 @@
                     </div>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
-                <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
                 
             </div>
         </nav>
@@ -236,37 +235,32 @@
                             <h5 class="mb-4"><i class="fa fa-phone-alt text-primary me-3"></i>Entretien téléphonique</h5>
                         </div>
                     </div>
-                    <p class="mb-4">Vous voulez aller en italie pour continuer vos études supérieure ou pour faire une formation et vous ne savez par où commencez? nous sommes là à votre disposition pour vous donner des informations précises pour votre projet d'étude sur le territoire italien laissez-nous votre numéro et ce que vous savoir au sujet de l'italie.</p>
+                    <p class="mb-4">Vous voulez aller en italie pour continuer vos études supérieure ou pour faire une formation et vous ne savez par où commencez? nous sommes là à votre disposition pour vous donner des informations précises pour votre projet d'étude sur le territoire italien laissez-nous votre numéro et ce que vous voulez savoir au sujet de l'italie.</p>
                     <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s">
                         <div class="bg-primary d-flex align-items-center justify-content-center rounded" style="width: 60px; height: 60px;">
                             <i class="fa fa-phone-alt text-white"></i>
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2">Appelez pour poser n'importe quelle question</h5>
-                            <h4 class="text-primary mb-0">Osaconsulting.contact@gmail.com</h4>
+                            <h5 class="text-primary mb-0">Osaconsulting.contact@gmail.com</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-5">
                     <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
-                        <form>
+                        <form id="myForm">
                             <div class="row g-3">
                                 <div class="col-xl-12">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Votre nom" style="height: 55px;">
+                                    <input id="name" name="name" type="text" class="form-control bg-light border-0" placeholder="Votre nom" style="height: 55px;">
                                 </div>
                                 <div class="col-12">
-                                    <input type="email" class="form-control bg-light border-0" placeholder="Votre Email" style="height: 55px;">
+                                    <input id="email" name="email" type="email" class="form-control bg-light border-0" placeholder="Votre Email" style="height: 55px;">
+                                </div>
+                                <div class="col-xl-12">
+                                    <input id="subject" name="subject" type="text" class="form-control bg-light border-0" placeholder="votre demande" style="height: 55px;">
                                 </div>
                                 <div class="col-12">
-                                    <select class="form-select bg-light border-0" style="height: 55px;">
-                                        <option selected>Select A Service</option>
-                                        <option value="1">Service 1</option>
-                                        <option value="2">Service 2</option>
-                                        <option value="3">Service 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form-control bg-light border-0" rows="3" placeholder="Message"></textarea>
+                                    <textarea id="message" name="message" class="form-control bg-light border-0" rows="3" placeholder="Message"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-dark w-100 py-3" type="submit">Demandez</button>
@@ -382,6 +376,14 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">      
+        (function () {
+        emailjs.init("SI8SSEDK4S4OlG5O_");
+    })();
+    </script>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -394,6 +396,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/email.js"></script>
 </body>
 
 </html>
