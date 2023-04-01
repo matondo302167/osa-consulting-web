@@ -134,44 +134,23 @@
                 <div class="col-lg-8">
                     <!-- Blog Detail Start -->
                     <div class="mb-5">
-                        <img class="img-fluid w-100 rounded mb-5" src="img/blog-1.jpg" alt="">
-                        <h1 class="mb-4">Diam dolor est labore duo ipsum clita sed et lorem tempor duo</h1>
-                        <p>Sadipscing labore amet rebum est et justo gubergren. Et eirmod ipsum sit diam ut
-                            magna lorem. Nonumy vero labore lorem sanctus rebum et lorem magna kasd, stet
-                            amet magna accusam consetetur eirmod. Kasd accusam sit ipsum sadipscing et at at
-                            sanctus et. Ipsum sit gubergren dolores et, consetetur justo invidunt at et
-                            aliquyam ut et vero clita. Diam sea sea no sed dolores diam nonumy, gubergren
-                            sit stet no diam kasd vero.</p>
-                        <p>Voluptua est takimata stet invidunt sed rebum nonumy stet, clita aliquyam dolores
-                            vero stet consetetur elitr takimata rebum sanctus. Sit sed accusam stet sit
-                            nonumy kasd diam dolores, sanctus lorem kasd duo dolor dolor vero sit et. Labore
-                            ipsum duo sanctus amet eos et. Consetetur no sed et aliquyam ipsum justo et,
-                            clita lorem sit vero amet amet est dolor elitr, stet et no diam sit. Dolor erat
-                            justo dolore sit invidunt.</p>
-                        <p>Diam dolor est labore duo invidunt ipsum clita et, sed et lorem voluptua tempor
-                            invidunt at est sanctus sanctus. Clita dolores sit kasd diam takimata justo diam
-                            lorem sed. Magna amet sed rebum eos. Clita no magna no dolor erat diam tempor
-                            rebum consetetur, sanctus labore sed nonumy diam lorem amet eirmod. No at tempor
-                            sea diam kasd, takimata ea nonumy elitr sadipscing gubergren erat. Gubergren at
-                            lorem invidunt sadipscing rebum sit amet ut ut, voluptua diam dolores at
-                            sadipscing stet. Clita dolor amet dolor ipsum vero ea ea eos.</p>
-                        <p>Voluptua est takimata stet invidunt sed rebum nonumy stet, clita aliquyam dolores
-                            vero stet consetetur elitr takimata rebum sanctus. Sit sed accusam stet sit
-                            nonumy kasd diam dolores, sanctus lorem kasd duo dolor dolor vero sit et. Labore
-                            ipsum duo sanctus amet eos et. Consetetur no sed et aliquyam ipsum justo et,
-                            clita lorem sit vero amet amet est dolor elitr, stet et no diam sit. Dolor erat
-                            justo dolore sit invidunt.</p>
+                        <img id="img_1" class="img-fluid w-100 rounded mb-5" alt="">
+                        <h1 id="t_1" class="mb-4"></h1>
+                        <p id="p_1"></p>
+                        <p id="p_2"></p>
+                        <p id="p_3"></p>
+                        <p id="p_4"></p>
+                        <p id="p_5"></p>
+                        <p id="p_6"></p>
+                        
+                       
                     </div>
-                    <!-- Blog Detail End -->
-    
-                    <!-- Comment List Start -->
-                    <!-- Comment List End -->
-    
-                    <!-- Comment Form Start -->
+
                     <div class="bg-light rounded p-5">
                 </div>
     
                 <!-- Sidebar Start -->
+                <p id="date"></p>
                 <!-- Sidebar End -->
             </div>
         </div>
@@ -280,6 +259,61 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+    <!-- Read from cloud firestore -->
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import {getDocs, doc, getDoc, getFirestore, collection} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js"
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyA04m4PyY743_tWQhLHqAtnSIY_Z62JeQU",
+            authDomain: "firstapp-a8bdd.firebaseapp.com",
+            databaseURL: "https://firstapp-a8bdd.firebaseio.com",
+            projectId: "firstapp-a8bdd",
+            storageBucket: "firstapp-a8bdd.appspot.com",
+            messagingSenderId: "380588471990",
+            appId: "1:380588471990:web:fbc0f5ca5555ca46eed817",
+            measurementId: "G-4MYV0CR6JD"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        
+        // Reading
+        const docRef = collection(db, "news");
+        var data = []
+        const querySnapshot = await getDocs(docRef);
+        querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+            data.push(doc.data())
+        });
+        console.log("Data  ",data);
+
+        document.getElementById("t_1").innerHTML = data[1].header_1;//Header
+
+        //image
+        let image = document.getElementById("img_1");
+        image.src = data[2].src_1;
+        console.log(`image src="${data[2].src_1}"`)
+
+        // body - 
+        document.getElementById("p_1").innerHTML = data[0].paragraph_1;//paragraph 1
+        document.getElementById("p_2").innerHTML = data[0].paragraph_2;//paragraph 2
+        document.getElementById("p_3").innerHTML = data[0].paragraph_3;//paragraph 3
+        document.getElementById("p_4").innerHTML = data[0].paragraph_4;//paragraph 4
+        document.getElementById("p_5").innerHTML = data[0].paragraph_5;//paragraph 5
+        document.getElementById("p_6").innerHTML = data[0].paragraph_6;//paragraph 6
+        
+        document.getElementById("date").innerHTML = data[0].date;//date
+
+    </script>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
